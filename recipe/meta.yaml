@@ -1,0 +1,102 @@
+{% set name = "tomopy" %}
+{% set version = "1.7.0" %}
+
+# Set CUDA related variables
+{% if cuda != "nogpu" %}
+{% set cuda_build_prefix = "cuda" + cuda|string %}
+{% set cuda_install_option = "--enable-cuda" %}
+{% else %}
+{% set cuda_build_prefix = "" %}
+{% set cuda_install_option = "--disable-cuda" %}
+{% set build = build + 100 %}
+{% endif %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  # git checkout because PTL submodule is not included in GitHub tarball
+  - git_url: https://github.com/{{ name }}/{{ name }}
+  - git_rev: {{ version }}
+  - path: get_cudatoolkit.py
+
+build:
+  number: 0
+  string: "{{ cuda_build_prefix }}py{{ py }}h{{ PKG_HASH }}_{{ build }}"
+  skip: true  # [py2k]
+  merge_build_host: True  # [win]
+  script:
+    - export CUDA_TOOLKIT_ROOT_DIR=$BUILD_PREFIX/cuda-{{ cuda }}
+    - export PATH=$CUDA_TOOLKIT_ROOT_DIR/bin:$PATH
+    - {{ PYTHON }} get_cudatoolkit.py {{ cuda }}  # [cuda != 'nogpu']
+    - {{ PYTHON }} -m pip install .
+      --no-deps --ignore-installed --no-index --no-cache-dir -vv
+      --install-option="-GNinja"
+      --install-option="{{ cuda_install_option }}"
+  ignore_run_exports:
+    - blas
+    - numpy
+    - python
+
+requirements:
+  build:
+    - {{ compiler('cxx') }}
+    - git
+  host:
+    - python
+    - conda  # Only used to download cudatoolkit
+    - cudatoolkit {{ cuda }}  # [cuda != 'nogpu']
+    - libopencv  # [win]
+    - mkl-devel
+    - opencv  # [not win]
+    - pip
+    - scikit-build
+    - setuptools_scm_git_archive
+  run:
+    - futures  # [py2k]
+    - mkl
+    - mkl_fft
+    - numexpr
+    - numpy >1.12
+    - python
+    - pywavelets
+    - scikit-image
+    - scipy
+    - six
+    - tifffile
+    - {{ pin_compatible('cudatoolkit', min_pin='x.x', max_pin='x.x') }}  # [cuda != 'nogpu']
+    - {{ pin_compatible('libopencv') }}  # [win]
+    - {{ pin_compatible('opencv') }}  # [not win]
+
+test:
+  requires:
+    - nose
+  imports:
+    - tomopy
+    - tomopy.misc
+    - tomopy.prep
+    - tomopy.recon
+    - tomopy.sim
+    - tomopy.util
+  source_files:
+    - test/*
+  commands:
+    # Add the cudatoolkit to the library path
+    - export LD_LIBRARY_PATH="$CONDA_PREFIX/lib:$LD_LIBRARY_PATH"  # [cuda != 'nogpu']
+    - nosetests test
+
+app:
+  own_environment: True
+
+about:
+  home: http://tomopy.readthedocs.io
+  license: BSD 3-Clause
+  license_family: BSD
+  license_file: LICENSE.txt
+  summary: 'Tomographic reconstruction in Python.'
+  description: |
+    TomoPy is an open-source Python package for tomographic data
+    processing and image reconstruction.
+  doc_url: http://tomopy.readthedocs.io
+  dev_url: https://github.com/tomopy/tomopy
