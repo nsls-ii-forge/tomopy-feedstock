@@ -1,5 +1,6 @@
 {% set name = "tomopy" %}
 {% set version = "1.7.0" %}
+{% set build = 0 %}
 
 # Set CUDA related variables
 {% if cuda != "nogpu" %}
@@ -22,18 +23,15 @@ source:
   path: get_cudatoolkit.py
 
 build:
-  number: 0
+  number: {{ build }}
   string: "{{ cuda_build_prefix }}py{{ py }}h{{ PKG_HASH }}_{{ build }}"
   skip: true  # [py<36]
-  merge_build_host: True  # [win]
+  merge_build_host: true  # [win]
   script:
     - export CUDA_TOOLKIT_ROOT_DIR=$BUILD_PREFIX/cuda-{{ cuda }}
     - export PATH=$CUDA_TOOLKIT_ROOT_DIR/bin:$PATH
     - {{ PYTHON }} get_cudatoolkit.py {{ cuda }}  # [cuda != 'nogpu']
-    - {{ PYTHON }} -m pip install .
-      --no-deps --ignore-installed --no-index --no-cache-dir -vv
-      --install-option="-GNinja"
-      --install-option="{{ cuda_install_option }}"
+    - "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-index --no-cache-dir -vv --install-option='-GNinja' --install-option='{{ cuda_install_option }}'"
   ignore_run_exports:
     - blas
     - numpy
@@ -45,21 +43,21 @@ requirements:
     - git
   host:
     - python
+    - pip
     - conda  # Only used to download cudatoolkit
     - cudatoolkit {{ cuda }}  # [cuda != 'nogpu']
     - libopencv  # [win]
     - mkl-devel
     - opencv  # [not win]
-    - pip
     - scikit-build
     - setuptools_scm_git_archive
   run:
+    - python
     - futures  # [py2k]
     - mkl
     - mkl_fft
     - numexpr
     - numpy >1.12
-    - python
     - pywavelets
     - scikit-image
     - scipy
@@ -94,7 +92,7 @@ about:
   license: BSD 3-Clause
   license_family: BSD
   license_file: LICENSE.txt
-  summary: 'Tomographic reconstruction in Python.'
+  summary: Tomographic reconstruction in Python
   description: |
     TomoPy is an open-source Python package for tomographic data
     processing and image reconstruction.

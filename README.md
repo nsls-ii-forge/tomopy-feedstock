@@ -7,7 +7,7 @@ Package license: BSD 3-Clause
 
 Feedstock license: BSD 3-Clause
 
-Summary: Tomographic reconstruction in Python.
+Summary: Tomographic reconstruction in Python
 
 TomoPy is an open-source Python package for tomographic data
 processing and image reconstruction.
