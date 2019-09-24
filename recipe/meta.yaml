@@ -18,9 +18,9 @@ package:
 
 source:
   # git checkout because PTL submodule is not included in GitHub tarball
-  git_url: https://github.com/{{ name }}/{{ name }}
-  git_rev: {{ version }}
-  path: get_cudatoolkit.py
+  - git_url: https://github.com/{{ name }}/{{ name }}
+    git_rev: {{ version }}
+  - path: get_cudatoolkit.py
 
 build:
   number: {{ build }}
