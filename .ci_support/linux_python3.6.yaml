@@ -3,7 +3,7 @@ channel_sources:
 channel_targets:
 - nsls2forge main
 cuda_compiler_version:
-- none
+- None
 cxx_compiler:
 - gxx
 docker_image:
