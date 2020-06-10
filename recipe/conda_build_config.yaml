@@ -2,3 +2,8 @@ channel_sources:
   - nsls2forge,defaults
 channel_targets:
   - nsls2forge main
+cuda_compiler_version:
+  - none
+python:
+  - 3.6
+  - 3.7

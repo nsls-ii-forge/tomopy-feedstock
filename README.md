@@ -7,7 +7,7 @@ Package license: BSD 3-Clause
 
 Feedstock license: BSD 3-Clause
 
-Summary: Tomographic reconstruction in Python
+Summary: Tomographic reconstruction in Python.
 
 TomoPy is an open-source Python package for tomographic data
 processing and image reconstruction.
@@ -31,59 +31,17 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux_cuda10.0python3.6</td>
+              <td>linux_python3.6</td>
               <td>
                 <a href="https://dev.azure.com/nsls2forge/nsls2forge/_build/latest?definitionId=113&branchName=master">
-                  <img src="https://dev.azure.com/nsls2forge/nsls2forge/_apis/build/status/tomopy-feedstock?branchName=master&jobName=linux&configuration=linux_cuda10.0python3.6" alt="variant">
+                  <img src="https://dev.azure.com/nsls2forge/nsls2forge/_apis/build/status/tomopy-feedstock?branchName=master&jobName=linux&configuration=linux_python3.6" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_cuda10.0python3.7</td>
+              <td>linux_python3.7</td>
               <td>
                 <a href="https://dev.azure.com/nsls2forge/nsls2forge/_build/latest?definitionId=113&branchName=master">
-                  <img src="https://dev.azure.com/nsls2forge/nsls2forge/_apis/build/status/tomopy-feedstock?branchName=master&jobName=linux&configuration=linux_cuda10.0python3.7" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_cuda9.0python3.6</td>
-              <td>
-                <a href="https://dev.azure.com/nsls2forge/nsls2forge/_build/latest?definitionId=113&branchName=master">
-                  <img src="https://dev.azure.com/nsls2forge/nsls2forge/_apis/build/status/tomopy-feedstock?branchName=master&jobName=linux&configuration=linux_cuda9.0python3.6" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_cuda9.0python3.7</td>
-              <td>
-                <a href="https://dev.azure.com/nsls2forge/nsls2forge/_build/latest?definitionId=113&branchName=master">
-                  <img src="https://dev.azure.com/nsls2forge/nsls2forge/_apis/build/status/tomopy-feedstock?branchName=master&jobName=linux&configuration=linux_cuda9.0python3.7" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_cuda9.2python3.6</td>
-              <td>
-                <a href="https://dev.azure.com/nsls2forge/nsls2forge/_build/latest?definitionId=113&branchName=master">
-                  <img src="https://dev.azure.com/nsls2forge/nsls2forge/_apis/build/status/tomopy-feedstock?branchName=master&jobName=linux&configuration=linux_cuda9.2python3.6" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_cuda9.2python3.7</td>
-              <td>
-                <a href="https://dev.azure.com/nsls2forge/nsls2forge/_build/latest?definitionId=113&branchName=master">
-                  <img src="https://dev.azure.com/nsls2forge/nsls2forge/_apis/build/status/tomopy-feedstock?branchName=master&jobName=linux&configuration=linux_cuda9.2python3.7" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_cudanogpupython3.6</td>
-              <td>
-                <a href="https://dev.azure.com/nsls2forge/nsls2forge/_build/latest?definitionId=113&branchName=master">
-                  <img src="https://dev.azure.com/nsls2forge/nsls2forge/_apis/build/status/tomopy-feedstock?branchName=master&jobName=linux&configuration=linux_cudanogpupython3.6" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_cudanogpupython3.7</td>
-              <td>
-                <a href="https://dev.azure.com/nsls2forge/nsls2forge/_build/latest?definitionId=113&branchName=master">
-                  <img src="https://dev.azure.com/nsls2forge/nsls2forge/_apis/build/status/tomopy-feedstock?branchName=master&jobName=linux&configuration=linux_cudanogpupython3.7" alt="variant">
+                  <img src="https://dev.azure.com/nsls2forge/nsls2forge/_apis/build/status/tomopy-feedstock?branchName=master&jobName=linux&configuration=linux_python3.7" alt="variant">
                 </a>
               </td>
             </tr><tr>
@@ -101,17 +59,17 @@ Current build status
                 </a>
               </td>
             </tr><tr>
-              <td>win_cxx_compilervs2015python3.6</td>
+              <td>win_python3.6</td>
               <td>
                 <a href="https://dev.azure.com/nsls2forge/nsls2forge/_build/latest?definitionId=113&branchName=master">
-                  <img src="https://dev.azure.com/nsls2forge/nsls2forge/_apis/build/status/tomopy-feedstock?branchName=master&jobName=win&configuration=win_cxx_compilervs2015python3.6" alt="variant">
+                  <img src="https://dev.azure.com/nsls2forge/nsls2forge/_apis/build/status/tomopy-feedstock?branchName=master&jobName=win&configuration=win_python3.6" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>win_cxx_compilervs2015python3.7</td>
+              <td>win_python3.7</td>
               <td>
                 <a href="https://dev.azure.com/nsls2forge/nsls2forge/_build/latest?definitionId=113&branchName=master">
-                  <img src="https://dev.azure.com/nsls2forge/nsls2forge/_apis/build/status/tomopy-feedstock?branchName=master&jobName=win&configuration=win_cxx_compilervs2015python3.7" alt="variant">
+                  <img src="https://dev.azure.com/nsls2forge/nsls2forge/_apis/build/status/tomopy-feedstock?branchName=master&jobName=win&configuration=win_python3.7" alt="variant">
                 </a>
               </td>
             </tr>
