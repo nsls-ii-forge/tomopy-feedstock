@@ -24,6 +24,8 @@ requirements:
     - pip
   build:
     - mkl-devel
+    - {{ compiler('c')}}
+    - {{ compiler('cpp')}}
   run:
     - python
     - dxchange
