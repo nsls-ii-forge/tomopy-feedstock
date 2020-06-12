@@ -12,17 +12,16 @@ source:
 
 build:
   number: 3
-  script: |
-    export C_INCLUDE_PATH=$PREFIX/include  # [not win]
-    set C_INCLUDE_PATH=%PREFIX%\\include  # [win]
-    {{ PYTHON }} -m pip install . --no-deps -vv
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
   skip: True  # [py<36]
 
 requirements:
-  build:
+  host:
     - python
     - pip
-    - mkl-devel
+    - mkl-include
+    - mkl
+  build:
     - {{ compiler('c')}}
     - {{ compiler('cxx')}}
   run:
