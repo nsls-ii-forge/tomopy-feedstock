@@ -47,14 +47,14 @@ requirements:
   host:
     - python
     - pip
-    - hdf5 == 1.10.4
+    - hdf5 ==1.10.4
     - libopencv
     - mkl-devel
     - scikit-build
     - setuptools_scm_git_archive
   run:
     - python
-    - hdf5 == 1.10.4
+    - hdf5 ==1.10.4
     - mkl
     - mkl_fft
     - numexpr
