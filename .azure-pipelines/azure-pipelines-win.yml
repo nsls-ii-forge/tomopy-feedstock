@@ -98,7 +98,7 @@ jobs:
 
     - script: |
         set "GIT_BRANCH=%BUILD_SOURCEBRANCHNAME%"
-        set "UPLOAD_ON_BRANCH=master"
+        set "UPLOAD_ON_BRANCH=v1.5.x"
         call activate base
         upload_package  .\ ".\recipe" .ci_support\%CONFIG%.yaml
       displayName: Upload package

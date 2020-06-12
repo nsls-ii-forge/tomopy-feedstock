@@ -23,7 +23,7 @@ jobs:
       export CI=azure
       export OSX_FORCE_SDK_DOWNLOAD="1"
       export GIT_BRANCH=$BUILD_SOURCEBRANCHNAME
-      export UPLOAD_ON_BRANCH="master"
+      export UPLOAD_ON_BRANCH="v1.5.x"
       ./.scripts/run_osx_build.sh
     displayName: Run OSX build
     env:
