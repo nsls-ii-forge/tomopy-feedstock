@@ -1,5 +1,5 @@
 {% set version = "1.7.1" %}
-{% set build = 1 %}
+{% set build = 2 %}
 
 # Set CUDA related variables
 {% if linux64 and cuda_compiler_version != "None" %}
@@ -45,25 +45,26 @@ requirements:
     - {{ compiler('cuda') }}  # [linux64 and cuda_compiler_version != "None"]
     - git  # [not win]
   host:
-    - pip
     - python
+    - pip
+    # - hdf5 == 1.10.4
     - libopencv
     - mkl-devel
     - scikit-build
     - setuptools_scm_git_archive
   run:
-    - futures  # [py2k]
+    - python
+    # - hdf5 == 1.10.4
     - mkl
     - mkl_fft
     - numexpr
     - numpy >1.12
-    - {{ pin_compatible('libopencv', min_pin='x.x', max_pin='x.x') }}
     - pywavelets
-    - python
     - scikit-image
     - scipy
     - six
     - tifffile
+    - {{ pin_compatible('libopencv', min_pin='x.x', max_pin='x.x') }}
   run_constrained:
     - astra-toolbox >1.8
 

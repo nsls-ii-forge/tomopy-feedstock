@@ -4,6 +4,8 @@ channel_targets:
   - nsls2forge main
 cuda_compiler_version:
   - None
+hdf5:
+  - 1.10.4
 python:
   - 3.6
   - 3.7
