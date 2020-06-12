@@ -52,3 +52,5 @@ about:
   home: http://tomopy.readthedocs.io
   license: BSD 3-Clause
   summary: Tomographic reconstruction in Python.
+  dev_url: https://github.com/tomopy/tomopy
+  doc_url: https://tomopy.readthedocs.io
