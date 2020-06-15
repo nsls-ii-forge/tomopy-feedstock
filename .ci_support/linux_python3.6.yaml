@@ -1,23 +1,24 @@
+c_compiler:
+- gcc
+c_compiler_version:
+- '7'
 channel_sources:
 - nsls2forge,defaults
 channel_targets:
 - nsls2forge main
-cuda_compiler_version:
-- None
 cxx_compiler:
 - gxx
 cxx_compiler_version:
 - '7'
 docker_image:
 - condaforge/linux-anvil-comp7
-numpy:
-- '1.14'
+mkl:
+- '2019'
 pin_run_as_build:
+  mkl:
+    max_pin: x
   python:
     min_pin: x.x
     max_pin: x.x
 python:
 - '3.6'
-zip_keys:
-- - cuda_compiler_version
-  - docker_image

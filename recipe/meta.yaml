@@ -1,75 +1,42 @@
-{% set version = "1.7.1" %}
-{% set build = 1 %}
-
-# Set CUDA related variables
-{% if linux64 and cuda_compiler_version != "None" %}
-{% set cuda_build_prefix = "cuda" + cuda_compiler_version|string %}
-{% set cuda_install_option = "--enable-cuda" %}
-{% else %}
-{% set cuda_build_prefix = "" %}
-{% set cuda_install_option = "--disable-cuda" %}
-{% set build = build + 100 %}
-{% endif %}
+{% set name = "tomopy" %}
+{% set version = "1.1.2" %}
+{% set sha256 = "0ababe6dec3aaf78af4bb646b3865845cf45a0884207ed9aafacca03729933d4" %}
 
 package:
-    name: tomopy
-    version: {{ version }}
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  # git checkout because PTL submodule is not included in GitHub tarball
-  - git_url: https://github.com/tomopy/tomopy.git
-    git_rev: {{ version }}
+  url: https://github.com/{{ name }}/{{ name }}/archive/{{ version }}.tar.gz
+  sha256: {{ sha256 }}
 
 build:
-  number: {{ build }}
-  string: "{{ cuda_build_prefix }}py{{ py }}h{{ PKG_HASH }}_{{ build }}"
-  skip: true  # [py<36]
-  merge_build_host: True  # [win]
-  script:
-#     - export CUDA_TOOLKIT_ROOT_DIR="${CUDA_HOME}"
-    - ln -s ${CUDA_HOME}/include/* ${CONDA_PREFIX}/include/
-    - {{ PYTHON }} -m pip install .
-      --no-deps --ignore-installed --no-index --no-cache-dir -vv
-      --install-option="-GNinja"
-      --install-option="{{ cuda_install_option }}"
-  ignore_run_exports:
-    - blas
-    - numpy
-    - python
-  missing_dso_whitelist:
-    - "*/libcuda.*"
+  number: 3
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
+  skip: True  # [py<36 or win]
 
 requirements:
-  build:
-    - {{ compiler('cxx') }}
-    - {{ compiler('cuda') }}  # [linux64 and cuda_compiler_version != "None"]
-    - git  # [not win]
   host:
-    - pip
     - python
-    - libopencv
-    - mkl-devel
-    - scikit-build
-    - setuptools_scm_git_archive
+    - pip
+    - mkl-include
+    - mkl
+  build:
+    - {{ compiler('c')}}
+    - {{ compiler('cxx')}}
   run:
-    - futures  # [py2k]
+    - python
+    - dxchange
     - mkl
     - mkl_fft
     - numexpr
-    - numpy >1.12
-    - {{ pin_compatible('libopencv', min_pin='x.x', max_pin='x.x') }}
+    - numpy
     - pywavelets
-    - python
     - scikit-image
     - scipy
     - six
-    - tifffile
-  run_constrained:
-    - astra-toolbox >1.8
 
 test:
-  requires:
-    - nose
   imports:
     - tomopy
     - tomopy.misc
@@ -77,10 +44,6 @@ test:
     - tomopy.recon
     - tomopy.sim
     - tomopy.util
-  source_files:
-    - test/*
-  commands:
-    - nosetests test
 
 app:
   own_environment: True
@@ -88,11 +51,6 @@ app:
 about:
   home: http://tomopy.readthedocs.io
   license: BSD 3-Clause
-  license_family: BSD
-  license_file: LICENSE.txt
-  summary: 'Tomographic reconstruction in Python.'
-  description: |
-    TomoPy is an open-source Python package for tomographic data
-    processing and image reconstruction.
-  doc_url: http://tomopy.readthedocs.io
+  summary: Tomographic reconstruction in Python.
   dev_url: https://github.com/tomopy/tomopy
+  doc_url: https://tomopy.readthedocs.io
