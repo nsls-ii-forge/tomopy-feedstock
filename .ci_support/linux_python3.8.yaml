@@ -5,7 +5,9 @@ channel_targets:
 cuda_compiler_version:
 - None
 cxx_compiler:
-- vs2017
+- gxx
+cxx_compiler_version:
+- '7'
 docker_image:
 - nsls2/nsls2forge:latest
 numpy:
@@ -15,4 +17,7 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 python:
-- '3.7'
+- '3.8'
+zip_keys:
+- - cuda_compiler_version
+  - docker_image
