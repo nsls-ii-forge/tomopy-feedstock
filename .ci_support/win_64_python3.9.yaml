@@ -1,3 +1,5 @@
+cdt_name:
+- cos6
 channel_sources:
 - nsls2forge,defaults
 channel_targets:
@@ -7,10 +9,15 @@ cuda_compiler_version:
 cxx_compiler:
 - vs2017
 numpy:
-- '1.14'
+- '1.16'
 pin_run_as_build:
   python:
     min_pin: x.x
     max_pin: x.x
 python:
-- '3.6'
+- '3.9'
+target_platform:
+- win-64
+zip_keys:
+- - python
+  - numpy
