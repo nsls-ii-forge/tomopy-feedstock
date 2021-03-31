@@ -35,45 +35,24 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux_64_cuda_compiler_version10.2python3.7</td>
+              <td>linux_64_python3.7</td>
               <td>
                 <a href="https://dev.azure.com/nsls2forge/nsls2forge/_build/latest?definitionId=113&branchName=master">
-                  <img src="https://dev.azure.com/nsls2forge/nsls2forge/_apis/build/status/tomopy-feedstock?branchName=master&jobName=linux&configuration=linux_64_cuda_compiler_version10.2python3.7" alt="variant">
+                  <img src="https://dev.azure.com/nsls2forge/nsls2forge/_apis/build/status/tomopy-feedstock?branchName=master&jobName=linux&configuration=linux_64_python3.7" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_cuda_compiler_version10.2python3.8</td>
+              <td>linux_64_python3.8</td>
               <td>
                 <a href="https://dev.azure.com/nsls2forge/nsls2forge/_build/latest?definitionId=113&branchName=master">
-                  <img src="https://dev.azure.com/nsls2forge/nsls2forge/_apis/build/status/tomopy-feedstock?branchName=master&jobName=linux&configuration=linux_64_cuda_compiler_version10.2python3.8" alt="variant">
+                  <img src="https://dev.azure.com/nsls2forge/nsls2forge/_apis/build/status/tomopy-feedstock?branchName=master&jobName=linux&configuration=linux_64_python3.8" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_cuda_compiler_version10.2python3.9</td>
+              <td>linux_64_python3.9</td>
               <td>
                 <a href="https://dev.azure.com/nsls2forge/nsls2forge/_build/latest?definitionId=113&branchName=master">
-                  <img src="https://dev.azure.com/nsls2forge/nsls2forge/_apis/build/status/tomopy-feedstock?branchName=master&jobName=linux&configuration=linux_64_cuda_compiler_version10.2python3.9" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_64_cuda_compiler_versionNonepython3.7</td>
-              <td>
-                <a href="https://dev.azure.com/nsls2forge/nsls2forge/_build/latest?definitionId=113&branchName=master">
-                  <img src="https://dev.azure.com/nsls2forge/nsls2forge/_apis/build/status/tomopy-feedstock?branchName=master&jobName=linux&configuration=linux_64_cuda_compiler_versionNonepython3.7" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_64_cuda_compiler_versionNonepython3.8</td>
-              <td>
-                <a href="https://dev.azure.com/nsls2forge/nsls2forge/_build/latest?definitionId=113&branchName=master">
-                  <img src="https://dev.azure.com/nsls2forge/nsls2forge/_apis/build/status/tomopy-feedstock?branchName=master&jobName=linux&configuration=linux_64_cuda_compiler_versionNonepython3.8" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_64_cuda_compiler_versionNonepython3.9</td>
-              <td>
-                <a href="https://dev.azure.com/nsls2forge/nsls2forge/_build/latest?definitionId=113&branchName=master">
-                  <img src="https://dev.azure.com/nsls2forge/nsls2forge/_apis/build/status/tomopy-feedstock?branchName=master&jobName=linux&configuration=linux_64_cuda_compiler_versionNonepython3.9" alt="variant">
+                  <img src="https://dev.azure.com/nsls2forge/nsls2forge/_apis/build/status/tomopy-feedstock?branchName=master&jobName=linux&configuration=linux_64_python3.9" alt="variant">
                 </a>
               </td>
             </tr><tr>

@@ -8,28 +8,16 @@ jobs:
     vmImage: ubuntu-16.04
   strategy:
     matrix:
-      linux_64_cuda_compiler_version10.2python3.7:
-        CONFIG: linux_64_cuda_compiler_version10.2python3.7
-        UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:10.2
-      linux_64_cuda_compiler_version10.2python3.8:
-        CONFIG: linux_64_cuda_compiler_version10.2python3.8
-        UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:10.2
-      linux_64_cuda_compiler_version10.2python3.9:
-        CONFIG: linux_64_cuda_compiler_version10.2python3.9
-        UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:10.2
-      linux_64_cuda_compiler_versionNonepython3.7:
-        CONFIG: linux_64_cuda_compiler_versionNonepython3.7
+      linux_64_python3.7:
+        CONFIG: linux_64_python3.7
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-comp7
-      linux_64_cuda_compiler_versionNonepython3.8:
-        CONFIG: linux_64_cuda_compiler_versionNonepython3.8
+      linux_64_python3.8:
+        CONFIG: linux_64_python3.8
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-comp7
-      linux_64_cuda_compiler_versionNonepython3.9:
-        CONFIG: linux_64_cuda_compiler_versionNonepython3.9
+      linux_64_python3.9:
+        CONFIG: linux_64_python3.9
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-comp7
   timeoutInMinutes: 360
