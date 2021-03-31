@@ -2,8 +2,29 @@ channel_sources:
   - nsls2forge,defaults
 channel_targets:
   - nsls2forge main
+cdt_name:
+  - cos6
+c_compiler_version:    # [linux]
+  - 7                  # [linux]
+cxx_compiler_version:  # [linux]
+  - 7                  # [linux]
+cudnn:
+  - undefined
 cuda_compiler_version:
   - None
+cdt_name:                                 # [linux]
+  - cos6                                  # [linux64 and os.environ.get("DEFAULT_LINUX_VERSION", "cos6") == "cos6"]
+docker_image:                             # [os.environ.get("BUILD_PLATFORM", "").startswith("linux-")]
+  - quay.io/condaforge/linux-anvil-comp7  # [os.environ.get("BUILD_PLATFORM") == "linux-64" and os.environ.get("DEFAULT_LINUX_VERSION", "cos6") == "cos6"]
+numpy:
+  - 1.16
+  - 1.16
+  - 1.16
 python:
-  - 3.6
   - 3.7
+  - 3.8
+  - 3.9
+python_impl:
+  - cpython
+  - cpython
+  - cpython
